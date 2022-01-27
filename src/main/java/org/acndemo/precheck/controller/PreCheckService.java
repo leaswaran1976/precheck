@@ -29,7 +29,7 @@ public class PreCheckService {
     @GET
     @Path("/validate")
     @Produces(MediaType.APPLICATION_JSON)
-    List<String> validateIntakeRecords() {
+    public List<String> validateIntakeRecords() {
         List<IntakeRecord> intakeRecords = intakeClient.list();
         List<String> validatedRecords = new ArrayList<String>();
         for(IntakeRecord intake : intakeRecords) {
@@ -38,5 +38,13 @@ public class PreCheckService {
         }
         return validatedRecords;
     }
+
+    @GET
+    @Path("/prechecktest")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String testValidation()  {
+        return "Hello - Validation was successful";
+    }
+
     
 }
